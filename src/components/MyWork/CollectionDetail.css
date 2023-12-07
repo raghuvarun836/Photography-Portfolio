@@ -1,0 +1,30 @@
+.collection-detail {
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 1200px; /* Adjust the max-width based on your design preference */
+}
+
+.collection-detail h2 {
+  padding: 20px;
+  color: rgb(115, 159, 152);
+}
+
+.images {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 15px;
+}
+
+.images img {
+  width: 100%;
+  max-width: 100%; /* Ensures that images don't exceed their natural size */
+  height: auto; /* Maintains the aspect ratio of the images */
+  border-radius: 8px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .images {
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+  }
+}

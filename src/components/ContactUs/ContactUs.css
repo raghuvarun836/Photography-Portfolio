@@ -1,0 +1,73 @@
+.contact-us {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.contact-us h2 {
+  font-size: 1.5rem;
+  color: #909090;
+  margin-bottom: 20px;
+}
+
+.contact-info {
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.info-item i {
+  margin-right: 10px;
+}
+
+.fa-phone-alt {
+  color: steelblue;
+}
+
+.fa-envelope {
+  color: orangered;
+}
+
+.fa-map-marker-alt {
+    font-size: 35px;
+  color: springgreen;
+}
+
+.info-item p {
+  margin: 0;
+}
+
+.info-item p:last-child {
+  font-weight: bold;
+}
+
+.map {
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .contact-info {
+      font-size: 1.2rem;
+    }
+  
+    .info-item {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .info-item i {
+      margin-bottom: 10px;
+    }
+  
+    .map {
+      margin-top: 20px;
+    }
+  }

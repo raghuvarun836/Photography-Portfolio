@@ -1,0 +1,54 @@
+footer {
+  background-color: #000000;
+  color: #cd9e9e;
+  padding: 20px 0;
+  /* position: absolute; */
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  /* align-items: center; */
+}
+.footer-content {
+  max-width: 1200px;
+  margin: 20px auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.social-icons a {
+  color: #fff;
+  margin-right: 25px;
+  font-size: 25px;
+}
+
+#insta {
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 40px;
+}
+
+.fa-whatsapp {
+  color: #fff;
+  background: linear-gradient(#25d366, #25d366) 14% 84%/16% 16% no-repeat,
+    radial-gradient(#25d366 60%, transparent 0);
+  font-size: 40px;
+}
+
+.fa-youtube {
+  color: #cd201f;
+  font-size: 40px;
+}
+
+.fa-envelope {
+  color: #fd5949;
+  font-size: 40px;
+}
