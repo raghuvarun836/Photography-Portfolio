@@ -20,11 +20,12 @@
   height: 250px; /* Adjust the height as needed */
 }
 
-.collection img {
+.collection-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  background-size: cover;
   border-radius: 8px;
+  transition: background-image 0.5s ease-in-out;
 }
 
 .collection:hover {

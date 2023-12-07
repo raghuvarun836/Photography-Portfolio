@@ -1,17 +1,17 @@
 .collection-detail {
-  margin: 0 auto;
+  margin: 0 50px;
   padding: 20px;
   max-width: 1200px; /* Adjust the max-width based on your design preference */
 }
 
 .collection-detail h2 {
   padding: 20px;
-  color: rgb(115, 159, 152);
+  color: #739f98;
 }
 
 .images {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 15px;
 }
 
@@ -19,7 +19,7 @@
   width: 100%;
   max-width: 100%; /* Ensures that images don't exceed their natural size */
   height: auto; /* Maintains the aspect ratio of the images */
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 /* Responsive styles */
