@@ -1,23 +1,25 @@
+/* Footer.css */
+
 footer {
   background-color: #000000;
   color: #cd9e9e;
   padding: 20px 0;
-  /* position: absolute; */
-  bottom: 0;
   width: 100%;
-  text-align: center;
-  /* align-items: center; */
+  text-align: center; /* Center the content */
 }
+
 .footer-content {
   max-width: 1200px;
   margin: 20px auto;
-  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
+  justify-content: center; /* Center items horizontally */
   align-items: center;
 }
 
 .social-icons a {
   color: #fff;
-  margin-right: 25px;
+  margin: 10px; /* Adjust spacing between icons */
   font-size: 25px;
 }
 
@@ -51,4 +53,11 @@ footer {
 .fa-envelope {
   color: #fd5949;
   font-size: 40px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .social-icons a {
+    margin: 10px; /* Adjust spacing between icons for smaller screens */
+  }
 }
