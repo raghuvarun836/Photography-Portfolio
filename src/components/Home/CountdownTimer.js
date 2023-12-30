@@ -54,10 +54,10 @@ const CountdownTimer = () => {
   return (
     <div className="countdown-timer">
       {timerData.offerExpired ? (
-        <p>Offer expired! Another offer awaits. Stay tuned!</p>
+        <p className="expired-message">Offer expired! Another offer awaits. Stay tuned!</p>
       ) : (
         <>
-          <p>Hurry! Contact us before the Offer ends in:</p>
+          <p className="timer-label">Hurry! Contact us before the Offer ends in:</p>
           <div className="timer-values">
             <span>{timerData.timeLeft.days}</span>
             <span>:</span>

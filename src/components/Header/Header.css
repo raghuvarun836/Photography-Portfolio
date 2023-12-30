@@ -47,8 +47,23 @@ body, h1, h2, h3, p, ul, li {
   text-transform: uppercase;
   font-weight: bold;
   overflow: hidden;
+
+  background: linear-gradient(90deg, #000, #ffbb7f, #000);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 80%;
+  animation: shine 7s linear infinite;
 }
 
+@keyframes shine{
+  0%{
+    background-position-x: -500%;
+  }
+  100%{
+    background-position-x: 500%;
+  }
+}
 .nav {
   display: flex;
   align-items: center;

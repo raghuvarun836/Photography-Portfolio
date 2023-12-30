@@ -1,10 +1,17 @@
-/* CountdownTimer.css */
-
 .countdown-timer {
   display: flex;
   align-items: center;
+  flex-direction: column;
   font-size: 18px;
   color: #bbbbbb;
+}
+
+.timer-label {
+  font-size: 18px;
+}
+
+.expired-message {
+  font-size: 18px;
 }
 
 .timer-values {
@@ -17,4 +24,11 @@
   font-weight: bold;
   color: rgb(255, 0, 0);
   margin: 0 5px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .timer-values span {
+    font-size: 18px;
+  }
 }

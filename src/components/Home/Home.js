@@ -33,7 +33,7 @@ const Home = () => {
         <div className="offer-details">
           {isWeekend() ? (
             <>
-              <p>
+              <p className="avail">
                 Book your photography session today and avail of our special
                 offers. Capture the moments that matter at discounted rates.
                 Limited time only!
@@ -54,7 +54,9 @@ const Home = () => {
               />
             </>
           ) : (
-            "Offer expired:( Another offer soon. Stay tuned !"
+            <>
+              <p className="expire">Offer expired😔 Another offer soon. Stay tuned !</p>
+            </>
           )}
         </div>
       </div>

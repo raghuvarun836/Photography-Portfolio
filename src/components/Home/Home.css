@@ -13,11 +13,14 @@
   font-size: 36px;
   margin-bottom: 20px;
   color: teal;
+  text-align: center;
 }
 
 .introduction p {
+  font-family: 'Waiting for the Sunrise', cursive;
+  letter-spacing: 3px;
   font-size: 18px;
-  line-height: 1.6;
+  /* line-height: 1.6; */
   color: silver;
 }
 
@@ -41,6 +44,10 @@
 }
 .offer-details p{
   color: rgb(255, 150, 150);
+}
+
+.offer-details .avail{
+  color: #ffaa60;
 }
 
 .offer-card h3 {
