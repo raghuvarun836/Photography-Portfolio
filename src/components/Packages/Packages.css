@@ -1,0 +1,102 @@
+/* Add this to your existing CSS or create a new CSS file for Packages */
+.packages {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.packages h1 {
+  color: rgb(209, 144, 237);
+}
+
+.service {
+  width: 100%;
+  max-width: 1000px;
+  margin: 20px auto;
+}
+
+.service h4 {
+  color: coral;
+}
+
+.packages-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.package {
+  text-align: center;
+  width: 30%;
+  padding: 20px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgb(128, 240, 255);
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.recommended,
+.popular {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  background-color: #ffcc00; /* Choose your color */
+  color: #fff;
+  padding: 5px 10px;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.popular {
+  background-color: #ff0000; /* Choose your color */
+}
+
+.package img {
+  width: 100%;
+  max-height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.package-details {
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.package-details h5.platinum-text {
+  color: palevioletred; /* Custom color for Platinum Package text */
+}
+
+.package-details h5.gold-text {
+  color: gold; /* Custom color for Gold Package text */
+}
+
+.package-details h5.silver-text {
+  color: tan; /* Custom color for Silver Package text */
+}
+
+.package-details p {
+  color: #ddd;
+  margin: 5px 0;
+}
+
+.package-details h3 {
+  margin-top: 30px;
+  color: green;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .package {
+    width: 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .package {
+    width: 100%;
+  }
+}

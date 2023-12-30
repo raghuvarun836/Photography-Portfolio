@@ -1,22 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { collections } from './data'; // Adjust the path based on your project structure
-import './CollectionDetail.css'; // New import for styling
+import axios from 'axios'; // Import axios for API requests
+import './CollectionDetail.css';
 
 const CollectionDetail = () => {
   const { id } = useParams();
-  const collection = collections[id];
+  const [collection, setCollection] = useState(null);
+
+  useEffect(() => {
+    const fetchCollection = async () => {
+      try {
+        const response = await axios.get(`//localhost:8080/api/collections/${id}`);
+        setCollection(response.data);
+      } catch (error) {
+        console.error('Error fetching collection:', error);
+      }
+    };
+
+    fetchCollection();
+  }, [id]);
+
+  console.log('ID:', id);
+  console.log('Collection:', collection);
 
   if (!collection) {
-    return <div>Collection not found</div>;
+    return <div>Loading...</div>;
   }
 
   return (
     <div className="collection-detail">
-      <h2>{collection.title}</h2>
+      <h2>{collection.name}</h2>
       <div className="images">
-        {collection.images.map((image, index) => (
-          <img key={index} src={image} alt={`${collection.title} ${index}`} />
+        {collection.images.map((image) => (
+          <img key={image.id} src={image.imageUrl} alt={image.id} />
         ))}
       </div>
     </div>

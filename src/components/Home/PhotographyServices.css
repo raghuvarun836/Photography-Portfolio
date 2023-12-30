@@ -1,0 +1,65 @@
+/* Update your PhotographyServices.css or create a new CSS file for PhotographyServices */
+
+.photography-services {
+    margin-top: 50px;
+  }
+
+.photography-services h3{
+    color: rgb(255, 127, 232);
+}
+
+.services-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.service-item {
+  position: relative;
+  border: 1px solid #333;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+}
+
+.service-item h4{
+  color: darkgray;
+}
+
+.service-item p{
+  color: gray;
+  opacity: 0.5;
+  margin-bottom: 20px;
+}
+
+.explore-button {
+  display: inline-block;
+  background-color: #000000;
+  color: cornflowerblue;
+  text-decoration: none;
+  margin-top: 15px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+  
+  /* Responsive styles */
+  @media (max-width: 1024px) {
+    .service-item {
+      width: calc(33.33% - 20px); /* Adjust for three items per row on medium screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .service-item {
+      width: calc(50% - 20px); /* Adjust for two items per row on smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .service-item {
+      width: 100%; /* Adjust for a single column on smaller screens */
+    }
+  }
+  

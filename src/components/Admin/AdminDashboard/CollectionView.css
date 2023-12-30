@@ -1,0 +1,117 @@
+.admin-collection-view {
+  background-color: #000000;
+  color: white;
+  padding: 20px;
+}
+
+.admin-collection-view label{
+  display: flex;
+  align-items: center;
+  margin: 5px;
+}
+
+.my-masonry-grid {
+  display: flex;
+  margin-top: 20px;
+  margin-left: -30px; /* gutter size offset */
+  width: auto;
+}
+
+.my-masonry-grid_column {
+  padding-left: 30px; /* gutter size */
+  background-clip: padding-box;
+}
+
+.image-card {
+  position: relative;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+.image-card:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.image-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.delete-icon {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 25px;
+  color: red;
+  cursor: pointer;
+  visibility: hidden;
+  transition: visibility 0.2s ease;
+}
+
+.image-card:hover .delete-icon {
+  visibility: visible;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  background: #545454;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  color: #333;
+  cursor: pointer;
+}
+
+input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 5px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .image-card {
+    margin-bottom: 15px;
+  }
+
+  .image-card img {
+    border-radius: 8px 8px 0 0;
+  }
+}

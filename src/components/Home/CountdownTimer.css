@@ -1,0 +1,20 @@
+/* CountdownTimer.css */
+
+.countdown-timer {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  color: #bbbbbb;
+}
+
+.timer-values {
+  display: flex;
+  align-items: center;
+}
+
+.timer-values span {
+  font-size: 24px;
+  font-weight: bold;
+  color: rgb(255, 0, 0);
+  margin: 0 5px;
+}

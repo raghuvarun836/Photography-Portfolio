@@ -1,48 +1,77 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { collections } from './data';
+import axios from 'axios';
 import './MyWork.css';
 
 const MyWork = () => {
-  const [collectionImages, setCollectionImages] = useState([]);
+  const [collections, setCollections] = useState([]);
+  const [currentImageIndices, setCurrentImageIndices] = useState([]);
 
   useEffect(() => {
-    // Initialize collectionImages with the first image of each collection
-    const initialImages = collections.map((collection) => collection.images[0]);
-    setCollectionImages(initialImages);
+    const fetchCollections = async () => {
+      try {
+        const response = await axios.get('//localhost:8080/api/collections');
+        setCollections(response.data);
 
-    // Preload images
-    collections.forEach((collection) => {
-      collection.images.forEach((imageSrc) => {
-        const img = new Image();
-        img.src = imageSrc;
-      });
-    });
+        // Initialize current image indices
+        setCurrentImageIndices(response.data.map(() => 0));
 
-    // Update collectionImages with a time gap
-    const intervalId = setInterval(() => {
-      setCollectionImages((prevImages) => {
-        // Cycle through images in each collection
-        return prevImages.map((currentImage, index) => {
-          const collection = collections[index];
-          const currentIndex = collection.images.indexOf(currentImage);
-          const nextIndex = (currentIndex + 1) % collection.images.length;
-          return collection.images[nextIndex];
+        // Log the fetched data for debugging
+        console.log('Fetched collections:', response.data);
+
+        // Preload images
+        const imagePromises = response.data.flatMap((collection) =>
+          collection.images.map((image) => {
+            return new Promise((resolve) => {
+              const img = new Image();
+              img.src = image.imageUrl;
+              img.onload = () => resolve();
+            });
+          })
+        );
+
+        Promise.all(imagePromises).then(() => {
+          // All images have been preloaded
+          console.log('All images preloaded');
         });
-      });
+      } catch (error) {
+        console.error('Error fetching collections:', error);
+      }
+    };
+
+    fetchCollections();
+  }, []);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentImageIndices((prevIndices) =>
+        prevIndices.map((prevIndex, index) => {
+          const collectionImages = collections[index].images;
+          return collectionImages.length > 1 ? (prevIndex + 1) % collectionImages.length : 0;
+        })
+      );
     }, 3000);
 
     return () => clearInterval(intervalId);
-  }, []);
+  }, [collections]);
 
   return (
     <div className="my-work">
       <div className="collections">
         {collections.map((collection, index) => (
-          <Link to={`/collection/${index}`} key={index} className="collection-link">
+          <Link to={`/collection/${collection.id}`} key={collection.id} className="collection-link">
             <div className="collection">
-              <div className="collection-image" style={{ backgroundImage: `url(${collectionImages[index]})` }} />
-              <h2>{collection.title}</h2>
+              {collection.images.map((image, imageIndex) => (
+                <div
+                  key={image.id} // Assuming each image has an 'id' property
+                  className="collection-image"
+                  style={{
+                    backgroundImage: `url(${image.imageUrl})`,
+                    display: currentImageIndices[index] === imageIndex ? 'block' : 'none',
+                  }}
+                />
+              ))}
+              <h2>{collection.name}</h2>
             </div>
           </Link>
         ))}

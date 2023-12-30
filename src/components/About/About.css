@@ -36,6 +36,7 @@
 }
 
 .owner-details h2 {
+  color: rgb(255, 212, 112);
   margin: 0 0 10px;
   font-size: 2rem; /* Increased size */
 }

@@ -25,7 +25,11 @@
   height: 100%;
   background-size: cover;
   border-radius: 8px;
-  transition: background-image 0.5s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0; /* Initial opacity set to 0 */
+  animation: fadeInOut 6s infinite; /* Adjust the animation duration as needed */
 }
 
 .collection:hover {
@@ -42,13 +46,12 @@
   text-decoration: none;
 }
 
-/* Responsive styles */
-@media (max-width: 768px) {
-  .collections {
-    justify-content: center;
+/* Animation keyframes */
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0; /* Fade out at the start and end */
   }
-
-  .collection {
-    flex: 0 0 calc(50% - 20px);
+  25%, 75% {
+    opacity: 1; /* Fully visible during middle of animation */
   }
 }
