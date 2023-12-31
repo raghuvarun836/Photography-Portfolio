@@ -23,7 +23,7 @@ const ContactUs = () => {
 
     try {
       const response = await axios.post(
-        "//localhost:8080/api/contact",
+        "https://photography-portfolio-gk9f.onrender.com/api/contact",
         formData
       );
 

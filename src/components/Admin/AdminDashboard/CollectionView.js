@@ -17,7 +17,7 @@ const CollectionView = () => {
     const fetchImages = async () => {
       try {
         const response = await axios.get(
-          `//localhost:8080/api/admin/collection/${collectionId}/images`
+          `https://photography-portfolio-gk9f.onrender.com/api/admin/collection/${collectionId}/images`
         );
         setImages(response.data);
       } catch (error) {
@@ -31,11 +31,11 @@ const CollectionView = () => {
   const handleAddImage = async () => {
     try {
       await axios.post(
-        `//localhost:8080/api/admin/addImageToCollection/${collectionId}`,
+        `https://photography-portfolio-gk9f.onrender.com/api/admin/addImageToCollection/${collectionId}`,
         { string: newImageUrl }
       );
       const response = await axios.get(
-        `//localhost:8080/api/admin/collection/${collectionId}/images`
+        `https://photography-portfolio-gk9f.onrender.com/api/admin/collection/${collectionId}/images`
       );
       setImages(response.data);
       setShowAddModal(false);
@@ -54,10 +54,10 @@ const CollectionView = () => {
         return;
       }
       await axios.delete(
-        `//localhost:8080/api/admin/removeImageFromCollection/${collectionId}/${selectedImage.id}`
+        `https://photography-portfolio-gk9f.onrender.com/api/admin/removeImageFromCollection/${collectionId}/${selectedImage.id}`
       );
       const response = await axios.get(
-        `//localhost:8080/api/admin/collection/${collectionId}/images`
+        `https://photography-portfolio-gk9f.onrender.com/api/admin/collection/${collectionId}/images`
       );
       setImages(response.data);
       setShowDeleteModal(false);

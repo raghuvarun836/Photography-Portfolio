@@ -17,7 +17,7 @@ const AdminDashboard = () => {
     const fetchCollections = async () => {
       try {
         const response = await axios.get(
-          "//localhost:8080/api/admin/collections"
+          "https://photography-portfolio-gk9f.onrender.com/api/admin/collections"
         );
         setCollections(response.data);
       } catch (error) {
@@ -30,11 +30,11 @@ const AdminDashboard = () => {
 
   const handleAddCollection = async () => {
     try {
-      await axios.post("//localhost:8080/api/admin/addCollection", {
+      await axios.post("https://photography-portfolio-gk9f.onrender.com/api/admin/addCollection", {
         string: selectedCollection.name,
       });
       const response = await axios.get(
-        "//localhost:8080/api/admin/collections"
+        "https://photography-portfolio-gk9f.onrender.com/api/admin/collections"
       );
       setCollections(response.data);
       setShowAddModal(false);
@@ -52,10 +52,10 @@ const AdminDashboard = () => {
         return;
       }
       await axios.put(
-        `//localhost:8080/api/admin/renameCollection/${selectedCollection.id}`,
+        `https://photography-portfolio-gk9f.onrender.com/api/admin/renameCollection/${selectedCollection.id}`,
         { string: selectedCollection.name }
       );
-      const response = await axios.get("//localhost:8080/api/admin/collections");
+      const response = await axios.get("https://photography-portfolio-gk9f.onrender.com/api/admin/collections");
       setCollections(response.data);
       setShowRenameModal(false);
       alert("Collection renamed successfully");
@@ -72,10 +72,10 @@ const AdminDashboard = () => {
         return;
       }
       await axios.delete(
-        `//localhost:8080/api/admin/removeCollection/${selectedCollection.id}`
+        `https://photography-portfolio-gk9f.onrender.com/api/admin/removeCollection/${selectedCollection.id}`
       );
       const response = await axios.get(
-        "//localhost:8080/api/admin/collections"
+        "https://photography-portfolio-gk9f.onrender.com/api/admin/collections"
       );
       setCollections(response.data);
       setShowDeleteModal(false);
@@ -96,7 +96,7 @@ const AdminDashboard = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post("//localhost:8080/api/admin/logout");
+      await axios.post("https://photography-portfolio-gk9f.onrender.com/api/admin/logout");
       sessionStorage.clear();
       window.history.replaceState(null, null, "/admin/login");
       navigate("/admin/login");
