@@ -99,7 +99,7 @@ const AdminDashboard = () => {
       await axios.post("https://photography-portfolio-gk9f.onrender.com/api/admin/logout");
       sessionStorage.clear();
       window.history.replaceState(null, null, "/admin/login");
-      navigate("/admin/login");
+      navigate("/");
     } catch (error) {
       console.error("Error logging out:", error);
     }
