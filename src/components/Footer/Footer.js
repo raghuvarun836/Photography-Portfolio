@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-content">
         <div className="social-icons">
-          <a href="https://instagram.com/8818rajesh?igshid=OGQ5ZDc2ODk2ZA==" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/creative_studioz_?igsh=MWVwdzBvbzJ4YjEycg==" target="_blank" rel="noopener noreferrer">
             <i className="fab fa-instagram" id="insta" aria-hidden="true"></i>
           </a>
           <a href="https://wa.me/9949698825" target="_blank" rel="noopener noreferrer">
@@ -15,12 +15,12 @@ const Footer = () => {
           <a href="https://www.youtube.com/@creativestudiorajeshsrisha7510" target="_blank" rel="noopener noreferrer">
             <i className="fab fa-youtube"></i>
           </a>
-          <a href="mailto:your@email.com">
+          <a href="mailto:k.p.rajesh888@gmail.com">
             <i className="far fa-envelope"></i>
           </a>
         </div>
       </div>
-      <p>&copy; 2023 Your Studio Name. All Rights Reserved.</p>
+      <p>&copy; 2024 Creative Studioz. All Rights Reserved.</p>
     </footer>
   );
 };
