@@ -133,7 +133,7 @@ const ContactUs = () => {
         </div>
         <div className="info-item">
           <i className="fas fa-envelope"></i>
-          <p>sample123@gmail.com</p>
+          <p>k.p.rajesh888@gmail.com</p>
         </div>
         <div className="info-item map-item">
           <i className="fas fa-map-marker-alt"></i>
