@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Masonry from "react-masonry-css";
 import "./CollectionView.css";
 import AdminLayout from "../../../Layouts/AdminLayout/AdminLayout";
+import Cookies from 'js-cookie';
 
 const CollectionView = () => {
   const { collectionId } = useParams();
@@ -15,9 +16,16 @@ const CollectionView = () => {
 
   useEffect(() => {
     const fetchImages = async () => {
+      const token = Cookies.get('adminToken');
       try {
         const response = await axios.get(
-          `https://photography-portfolio-gk9f.onrender.com/api/admin/collection/${collectionId}/images`
+          `http://localhost:8080/api/admin/collection/${collectionId}/images`,
+          {
+            headers: {
+              'Authorization': 'Bearer ' + token,
+              'Content-Type': 'application/json'
+            }
+          }
         );
         setImages(response.data);
       } catch (error) {
@@ -30,12 +38,25 @@ const CollectionView = () => {
 
   const handleAddImage = async () => {
     try {
+      const token = Cookies.get('adminToken');
       await axios.post(
-        `https://photography-portfolio-gk9f.onrender.com/api/admin/addImageToCollection/${collectionId}`,
-        { string: newImageUrl }
+        `http://localhost:8080/api/admin/addImageToCollection/${collectionId}`,
+        { string: newImageUrl },
+        {
+          headers: {
+            'Authorization': 'Bearer ' + token,
+            'Content-Type': 'application/json'
+          }
+        }
       );
       const response = await axios.get(
-        `https://photography-portfolio-gk9f.onrender.com/api/admin/collection/${collectionId}/images`
+        `http://localhost:8080/api/admin/collection/${collectionId}/images`,
+        {
+          headers: {
+            'Authorization': 'Bearer ' + token,
+            'Content-Type': 'application/json'
+          }
+        }
       );
       setImages(response.data);
       setShowAddModal(false);
@@ -46,18 +67,31 @@ const CollectionView = () => {
       alert("Failed to add image: " + error.response.data);
     }
   };
-
+  
   const handleDeleteImage = async () => {
     try {
       if (!selectedImage.id) {
         console.error("Selected image or imageId is undefined.");
         return;
       }
+      const token = Cookies.get('adminToken');
       await axios.delete(
-        `https://photography-portfolio-gk9f.onrender.com/api/admin/removeImageFromCollection/${collectionId}/${selectedImage.id}`
+        `http://localhost:8080/api/admin/removeImageFromCollection/${collectionId}/${selectedImage.id}`,
+        {
+          headers: {
+            'Authorization': 'Bearer ' + token,
+            'Content-Type': 'application/json'
+          }
+        }
       );
       const response = await axios.get(
-        `https://photography-portfolio-gk9f.onrender.com/api/admin/collection/${collectionId}/images`
+        `http://localhost:8080/api/admin/collection/${collectionId}/images`,
+        {
+          headers: {
+            'Authorization': 'Bearer ' + token,
+            'Content-Type': 'application/json'
+          }
+        }
       );
       setImages(response.data);
       setShowDeleteModal(false);

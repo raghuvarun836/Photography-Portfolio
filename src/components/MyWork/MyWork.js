@@ -10,7 +10,7 @@ const MyWork = () => {
   useEffect(() => {
     const fetchCollections = async () => {
       try {
-        const response = await axios.get('https://photography-portfolio-gk9f.onrender.com/api/collections');
+        const response = await axios.get('http://localhost:8080/api/collections');
         setCollections(response.data);
 
         // Initialize current image indices

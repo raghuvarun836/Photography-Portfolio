@@ -4,6 +4,7 @@ import "./AdminDashboard.css";
 import AdminLayout from "../../../Layouts/AdminLayout/AdminLayout";
 import { useNavigate } from "react-router-dom";
 import CollectionCard from "./CollectionCard";
+import Cookies from 'js-cookie';
 
 const AdminDashboard = () => {
   const [collections, setCollections] = useState([]);
@@ -15,9 +16,16 @@ const AdminDashboard = () => {
 
   useEffect(() => {
     const fetchCollections = async () => {
+      const token = Cookies.get('adminToken');
       try {
         const response = await axios.get(
-          "https://photography-portfolio-gk9f.onrender.com/api/admin/collections"
+          "http://localhost:8080/api/admin/collections",
+          {
+            headers: {
+              'Authorization': 'Bearer ' + token,
+              'Content-Type': 'application/json'
+            }
+          }
         );
         setCollections(response.data);
       } catch (error) {
@@ -30,11 +38,27 @@ const AdminDashboard = () => {
 
   const handleAddCollection = async () => {
     try {
-      await axios.post("https://photography-portfolio-gk9f.onrender.com/api/admin/addCollection", {
-        string: selectedCollection.name,
-      });
+      const token = Cookies.get('adminToken');
+      await axios.post(
+        "http://localhost:8080/api/admin/addCollection",
+        {
+          string: selectedCollection.name,
+        },
+        {
+          headers: {
+            'Authorization': 'Bearer ' + token,
+            'Content-Type': 'application/json'
+          }
+        }
+      );
       const response = await axios.get(
-        "https://photography-portfolio-gk9f.onrender.com/api/admin/collections"
+        "http://localhost:8080/api/admin/collections",
+        {
+          headers: {
+            'Authorization': 'Bearer ' + token,
+            'Content-Type': 'application/json'
+          }
+        }
       );
       setCollections(response.data);
       setShowAddModal(false);
@@ -51,11 +75,26 @@ const AdminDashboard = () => {
         console.error("Selected collection or collectionId is undefined.");
         return;
       }
+      const token = Cookies.get('adminToken');
       await axios.put(
-        `https://photography-portfolio-gk9f.onrender.com/api/admin/renameCollection/${selectedCollection.id}`,
-        { string: selectedCollection.name }
+        `http://localhost:8080/api/admin/renameCollection/${selectedCollection.id}`,
+        { string: selectedCollection.name },
+        {
+          headers: {
+            'Authorization': 'Bearer ' + token,
+            'Content-Type': 'application/json'
+          }
+        }
       );
-      const response = await axios.get("https://photography-portfolio-gk9f.onrender.com/api/admin/collections");
+      const response = await axios.get(
+        "http://localhost:8080/api/admin/collections",
+        {
+          headers: {
+            'Authorization': 'Bearer ' + token,
+            'Content-Type': 'application/json'
+          }
+        }
+      );
       setCollections(response.data);
       setShowRenameModal(false);
       alert("Collection renamed successfully");
@@ -71,11 +110,24 @@ const AdminDashboard = () => {
         console.error("Selected collection or collectionId is undefined.");
         return;
       }
+      const token = Cookies.get('adminToken');
       await axios.delete(
-        `https://photography-portfolio-gk9f.onrender.com/api/admin/removeCollection/${selectedCollection.id}`
+        `http://localhost:8080/api/admin/removeCollection/${selectedCollection.id}`,
+        {
+          headers: {
+            'Authorization': 'Bearer ' + token,
+            'Content-Type': 'application/json'
+          }
+        }
       );
       const response = await axios.get(
-        "https://photography-portfolio-gk9f.onrender.com/api/admin/collections"
+        "http://localhost:8080/api/admin/collections",
+        {
+          headers: {
+            'Authorization': 'Bearer ' + token,
+            'Content-Type': 'application/json'
+          }
+        }
       );
       setCollections(response.data);
       setShowDeleteModal(false);
@@ -95,11 +147,22 @@ const AdminDashboard = () => {
   };
 
   const handleLogout = async () => {
+    const token = Cookies.get('adminToken');
     try {
-      await axios.post("https://photography-portfolio-gk9f.onrender.com/api/admin/logout");
+      await axios.post(
+        "http://localhost:8080/api/admin/logout",
+        {},
+        {
+          headers: {
+            'Authorization': 'Bearer ' + token,
+            'Content-Type': 'application/json'
+          }
+        }
+      );
+      Cookies.remove('adminToken'); // Remove the token from cookies
       sessionStorage.clear();
       window.history.replaceState(null, null, "/admin/login");
-      navigate("/");
+      navigate("/admin/login");
     } catch (error) {
       console.error("Error logging out:", error);
     }
