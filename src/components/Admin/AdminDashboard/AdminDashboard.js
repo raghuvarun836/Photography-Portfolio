@@ -19,7 +19,7 @@ const AdminDashboard = () => {
       const token = Cookies.get('adminToken');
       try {
         const response = await axios.get(
-          "http://localhost:8080/api/admin/collections",
+          "https://photography-portfolio-gk9f.onrender.com/api/admin/collections",
           {
             headers: {
               'Authorization': 'Bearer ' + token,
@@ -40,7 +40,7 @@ const AdminDashboard = () => {
     try {
       const token = Cookies.get('adminToken');
       await axios.post(
-        "http://localhost:8080/api/admin/addCollection",
+        "https://photography-portfolio-gk9f.onrender.com/api/admin/addCollection",
         {
           string: selectedCollection.name,
         },
@@ -52,7 +52,7 @@ const AdminDashboard = () => {
         }
       );
       const response = await axios.get(
-        "http://localhost:8080/api/admin/collections",
+        "https://photography-portfolio-gk9f.onrender.com/api/admin/collections",
         {
           headers: {
             'Authorization': 'Bearer ' + token,
@@ -77,7 +77,7 @@ const AdminDashboard = () => {
       }
       const token = Cookies.get('adminToken');
       await axios.put(
-        `http://localhost:8080/api/admin/renameCollection/${selectedCollection.id}`,
+        `https://photography-portfolio-gk9f.onrender.com/api/admin/renameCollection/${selectedCollection.id}`,
         { string: selectedCollection.name },
         {
           headers: {
@@ -87,7 +87,7 @@ const AdminDashboard = () => {
         }
       );
       const response = await axios.get(
-        "http://localhost:8080/api/admin/collections",
+        "https://photography-portfolio-gk9f.onrender.com/api/admin/collections",
         {
           headers: {
             'Authorization': 'Bearer ' + token,
@@ -112,7 +112,7 @@ const AdminDashboard = () => {
       }
       const token = Cookies.get('adminToken');
       await axios.delete(
-        `http://localhost:8080/api/admin/removeCollection/${selectedCollection.id}`,
+        `https://photography-portfolio-gk9f.onrender.com/api/admin/removeCollection/${selectedCollection.id}`,
         {
           headers: {
             'Authorization': 'Bearer ' + token,
@@ -121,7 +121,7 @@ const AdminDashboard = () => {
         }
       );
       const response = await axios.get(
-        "http://localhost:8080/api/admin/collections",
+        "https://photography-portfolio-gk9f.onrender.com/api/admin/collections",
         {
           headers: {
             'Authorization': 'Bearer ' + token,
@@ -150,7 +150,7 @@ const AdminDashboard = () => {
     const token = Cookies.get('adminToken');
     try {
       await axios.post(
-        "http://localhost:8080/api/admin/logout",
+        "https://photography-portfolio-gk9f.onrender.com/api/admin/logout",
         {},
         {
           headers: {

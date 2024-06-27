@@ -10,7 +10,7 @@ const CollectionDetail = () => {
   useEffect(() => {
     const fetchCollection = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/api/collections/${id}`);
+        const response = await axios.get(`https://photography-portfolio-gk9f.onrender.com/api/collections/${id}`);
         setCollection(response.data);
       } catch (error) {
         console.error('Error fetching collection:', error);

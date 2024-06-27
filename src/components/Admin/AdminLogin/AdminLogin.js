@@ -15,7 +15,7 @@ const AdminLogin = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:8080/api/admin/login', { username, password });
+      const response = await axios.post('https://photography-portfolio-gk9f.onrender.com/api/admin/login', { username, password });
       const token = response.data;
       console.log(response);
       Cookies.set('adminToken', token, { "expires" : 1 });
